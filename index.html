@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ludo</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="topbar">
+        <h1>Ludo</h1>
+        <div class="topbar-actions">
+          <button id="mute" class="icon-btn" type="button" aria-pressed="false">
+            🔊 Sound
+          </button>
+          <button id="new-game" class="icon-btn" type="button">New game</button>
+        </div>
+      </header>
+
+      <div class="layout">
+        <div id="board" class="board"></div>
+
+        <aside class="panel">
+          <p id="status" class="status">Red's turn</p>
+
+          <div class="dice-row">
+            <div id="dice" class="dice" aria-label="Dice">
+              <span></span><span></span><span></span>
+              <span></span><span></span><span></span>
+              <span></span><span></span><span></span>
+            </div>
+            <button id="roll" class="roll" type="button">Roll</button>
+          </div>
+
+          <ul id="scores" class="scores"></ul>
+
+          <p class="hint">
+            Roll a 6 to release a token. Click a highlighted token to move it. A
+            6, a capture or a token reaching home earns another roll — but three
+            6s in a row forfeits the turn. Two tokens of the same colour on one
+            cell form a block that opponents cannot pass.
+          </p>
+        </aside>
+      </div>
+    </main>
+
+    <div id="setup" class="overlay">
+      <form id="setup-form" class="dialog" autocomplete="off">
+        <h2>New game</h2>
+
+        <label class="field">
+          <span>Players</span>
+          <select id="player-count">
+            <option value="2">2 players</option>
+            <option value="3">3 players</option>
+            <option value="4" selected>4 players</option>
+          </select>
+        </label>
+
+        <div id="seats" class="seats"></div>
+
+        <button class="primary" type="submit">Start game</button>
+      </form>
+    </div>
+
+    <div id="result" class="overlay hidden">
+      <div class="dialog">
+        <h2 id="result-title">Game over</h2>
+        <ol id="result-list" class="result-list"></ol>
+        <button id="play-again" class="primary" type="button">Play again</button>
+      </div>
+    </div>
+
+    <script src="game.js"></script>
+  </body>
+</html>
